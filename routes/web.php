@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'BlogController@index')->name('home');
 
 Route::resource('blog', 'BlogController');
+Route::resource('comment', 'CommentController', ['only'=>'store']);

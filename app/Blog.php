@@ -11,7 +11,13 @@ use Illuminate\Database\Query\Builder;
  */
 class Blog extends Model
 {
+    protected $table = 'blogs';
     protected $fillable = [
         'title','content'
     ];
+
+    public function comment()
+    {
+        return $this->hasMany('App\Comment');   //  1 对 n
+    }
 }

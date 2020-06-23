@@ -22,25 +22,36 @@
 <body>
 <script type="application/javascript" charset="utf-8">
     window.onload = function () {
-        new Vue({
-            el: '#delete_blog',
-            data: {
-                type: 'DELETE',
-            },
-            method: {
-                delete_blog: function () {
-                    alert('sss')
-                    // axios({
-                    //     method: this.type,
-                    //     url: path,
-                    // }).then(function(resp){
-                    //     console.log(resp)
-                    // }).catch(err => {
-                    //     console.log('请求失败:'+err.status+','+err.statusText);
-                    // })
-                }
-            }
-        });
+        // new Vue({
+        //     el: '#delete_blog',
+        //     data: {
+        //         type: 'DELETE',
+        //     },
+        //     method: {
+        //         delete_blog: function () {
+        //             alert('sss')
+        //             // axios({
+        //             //     method: this.type,
+        //             //     url: path,
+        //             // }).then(function(resp){
+        //             //     console.log(resp)
+        //             // }).catch(err => {
+        //             //     console.log('请求失败:'+err.status+','+err.statusText);
+        //             // })
+        //         }
+        //     }
+        // });
+
+
+    }
+
+    function deleteConfirm(id) {
+        var confirm = window.confirm('确认要删除这篇文章吗？');
+        if(confirm === true) {
+            $("#delete-blog-" + id).submit(); //提交表单
+        }else {
+            window.alert('你选择不删除！');
+        }
     }
 </script>
     <div id="app">
@@ -94,7 +105,7 @@
                 </div>
             </div>
         </nav>
-
+        @include('components._message')
         <main class="py-4">
             @yield('content')
         </main>
