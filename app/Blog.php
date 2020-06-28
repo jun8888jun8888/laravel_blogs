@@ -18,6 +18,6 @@ class Blog extends Model
 
     public function comment()
     {
-        return $this->hasMany('App\Comment');   //  1 对 n
+        return $this->hasMany("App\Comment::class");   //  1 对 n
     }
 }

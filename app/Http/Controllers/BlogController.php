@@ -6,6 +6,11 @@ use App\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class BlogController
+ * @package App\Http\Controllers
+ * @mixin
+ */
 class BlogController extends Controller
 {
     /**
@@ -41,6 +46,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+//        DB::table('')->
         $blog = Blog::create($request->post());
         return redirect()->route('blog.show', $blog);
     }
@@ -53,7 +59,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        $comments = $blog->comment;
+        $comments = Blog::find($blog->id)->comment()->paginate(10);
         return view('blog.show', ['blog'=>$blog, 'comments'=>$comments]);
     }
 

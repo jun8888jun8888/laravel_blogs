@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //测试环境注册
+        if ($this->app->environment() == 'local'){
+
+        }
     }
 
     /**

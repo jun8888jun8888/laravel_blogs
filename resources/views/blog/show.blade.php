@@ -20,6 +20,9 @@
                             <li><small>{{$comment->userName()}} 评论: </small>"   {{$comment->content}}   "</li>
                         @endforeach
                     </ul>
+                    <div>
+                        {{ $comments->links() }}
+                    </div>
                 </div>
                 <div class="card-footer">
                     @guest
